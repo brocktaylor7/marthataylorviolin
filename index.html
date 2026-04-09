@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martha Taylor Violin</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #faf9f7; color: #2c2c2c; }
+    header { background: #2c3e50; color: white; padding: 2rem 1.5rem; text-align: center; }
+    header h1 { font-size: 2.4rem; font-weight: normal; letter-spacing: 0.04em; }
+    header p { font-size: 1.1rem; margin-top: 0.4rem; color: #b8c6d4; font-style: italic; }
+    nav { background: #3d5166; display: flex; justify-content: center; flex-wrap: wrap; }
+    nav a { color: #dce8f0; text-decoration: none; padding: 0.75rem 1.5rem; font-size: 0.95rem; font-family: Arial, sans-serif; letter-spacing: 0.03em; transition: background 0.2s; }
+    nav a:hover { background: #2c3e50; color: white; }
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    h2 { font-size: 1.5rem; font-weight: normal; color: #2c3e50; margin-bottom: 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #ddd; }
+    .card { background: white; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 2rem; }
+    .card iframe { width: 100%; border: none; border-radius: 4px; }
+    .card p { line-height: 1.8; font-size: 1rem; }
+    .card a { color: #2c6fad; }
+    .content p { line-height: 1.8; margin-bottom: 0.75rem; }
+    .content strong { color: #2c3e50; }
+    footer { text-align: center; padding: 1.5rem; font-size: 0.85rem; color: #888; font-family: Arial, sans-serif; border-top: 1px solid #e0e0e0; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Martha Taylor Violin</h1>
+    <p>Private Violin Instruction · Nibley, Utah</p>
+  </header>
+  <nav>
+    <a href="#calendar">Schedule</a>
+    <a href="#policy">Studio Policy</a>
+    <a href="#announcements">Announcements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <main>
+    <section class="card" id="calendar">
+      <h2>Schedule</h2>
+      <iframe src="https://www.google.com/calendar/embed?src=bm26phmm4ta0c1t91t9ei9q1ks%40group.calendar.google.com&ctz=America/Denver" height="600" frameborder="0" scrolling="no"></iframe>
+    </section>
+    <section class="card" id="policy">
+      <h2>Studio Policy</h2>
+      <div class="content" id="policy-content"><p>Loading...</p></div>
+    </section>
+    <section class="card" id="announcements">
+      <h2>Announcements</h2>
+      <div class="content" id="announcements-content"><p>Loading...</p></div>
+    </section>
+    <section class="card" id="contact">
+      <h2>Contact</h2>
+      <p>Martha Taylor<br>Nibley, Utah<br><a href="tel:8014502705">801-450-2705</a><br><a href="mailto:mtaylor62@gmail.com">mtaylor62@gmail.com</a></p>
+    </section>
+  </main>
+  <footer>&copy; Martha Taylor Violin</footer>
+  <script>
+    async function loadContent(file, elementId) {
+      try {
+        const res = await fetch('/content/' + file);
+        const data = await res.json();
+        document.getElementById(elementId).innerHTML = marked.parse(data.body);
+      } catch(e) {
+        document.getElementById(elementId).innerHTML = '<p>Content unavailable.</p>';
+      }
+    }
+    loadContent('policy.json', 'policy-content');
+    loadContent('announcements.json', 'announcements-content');
+  </script>
+</body>
+</html>

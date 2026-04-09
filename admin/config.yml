@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: brocktaylor7/marthataylorviolin
+  branch: main
+
+media_folder: images
+public_folder: /images
+
+collections:
+  - name: "content"
+    label: "Site Content"
+    files:
+      - label: "Announcements"
+        name: "announcements"
+        file: "content/announcements.json"
+        fields:
+          - label: "Announcements"
+            name: "body"
+            widget: "markdown"
+            hint: "This is what students and parents see on the Announcements section of the site."
+      - label: "Studio Policy"
+        name: "policy"
+        file: "content/policy.json"
+        fields:
+          - label: "Studio Policy"
+            name: "body"
+            widget: "markdown"
+            hint: "Tuition, attendance, and practice policies."

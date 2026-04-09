@@ -1,0 +1,8 @@
+{
+  "routes": [
+    { "route": "/admin", "rewrite": "/admin/index.html" }
+  ],
+  "globalHeaders": {
+    "cache-control": "no-cache"
+  }
+}
