@@ -2,8 +2,7 @@ backend:
   name: github
   repo: brocktaylor7/marthataylorviolin
   branch: main
-  base_url: https://marthataylorviolin.com
-  auth_endpoint: api/oauth/callback
+  base_url: https://api.netlify.com
 
 media_folder: images
 public_folder: /images
