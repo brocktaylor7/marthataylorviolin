@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Martha Taylor Violin</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Georgia, 'Times New Roman', serif; background: #faf9f7; color: #2c2c2c; }
@@ -34,7 +35,7 @@
     <a href="/contact.html">Contact</a>
   </nav>
   <main>
-    <section class="card" id="calendar">
+    <section class="card">
       <h2>Schedule</h2>
       <iframe src="https://www.google.com/calendar/embed?src=bm26phmm4ta0c1t91t9ei9q1ks%40group.calendar.google.com&ctz=America/Denver" height="600" frameborder="0" scrolling="no"></iframe>
     </section>
@@ -45,9 +46,9 @@
   </main>
   <footer>&copy; Martha Taylor Violin</footer>
   <script>
-    fetch('/content/announcements.json')
-      .then(r => r.json())
-      .then(d => { document.getElementById('announcements-content').innerHTML = marked.parse(d.body); })
+    fetch('/content/announcements.yaml')
+      .then(r => r.text())
+      .then(t => { const d = jsyaml.load(t); document.getElementById('announcements-content').innerHTML = marked.parse(d.body); })
       .catch(() => { document.getElementById('announcements-content').innerHTML = '<p>No announcements at this time.</p>'; });
   </script>
 </body>

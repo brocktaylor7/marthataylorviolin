@@ -14,17 +14,15 @@ collections:
     files:
       - label: "Announcements"
         name: "announcements"
-        file: "content/announcements.json"
+        file: "content/announcements.yaml"
         fields:
           - label: "Announcements"
             name: "body"
             widget: "markdown"
-            hint: "This is what students and parents see on the Announcements section."
       - label: "Studio Policy"
         name: "policy"
-        file: "content/policy.json"
+        file: "content/policy.yaml"
         fields:
           - label: "Studio Policy"
             name: "body"
             widget: "markdown"
-            hint: "Tuition, attendance, and practice policies."
