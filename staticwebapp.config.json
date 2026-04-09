@@ -2,6 +2,10 @@
   "routes": [
     { "route": "/admin", "rewrite": "/admin/index.html" }
   ],
+  "mimeTypes": {
+    ".yml": "text/yaml",
+    ".yaml": "text/yaml"
+  },
   "globalHeaders": {
     "cache-control": "no-cache"
   }
