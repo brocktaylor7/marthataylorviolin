@@ -3,6 +3,7 @@ backend:
   repo: brocktaylor7/marthataylorviolin
   branch: main
   base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: images
 public_folder: /images
