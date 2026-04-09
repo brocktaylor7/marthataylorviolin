@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Martha Taylor Violin</title>
+  <title>Studio Policy · Martha Taylor Violin</title>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,7 +17,6 @@
     main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
     h2 { font-size: 1.5rem; font-weight: normal; color: #2c3e50; margin-bottom: 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid #ddd; }
     .card { background: white; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 2rem; }
-    .card iframe { width: 100%; border: none; border-radius: 4px; }
     .content p { line-height: 1.8; margin-bottom: 0.75rem; }
     .content strong { color: #2c3e50; }
     footer { text-align: center; padding: 1.5rem; font-size: 0.85rem; color: #888; font-family: Arial, sans-serif; border-top: 1px solid #e0e0e0; margin-top: 1rem; }
@@ -29,26 +28,22 @@
     <p>Private Violin Instruction · Nibley, Utah</p>
   </header>
   <nav>
-    <a href="/" class="active">Home</a>
-    <a href="/policy.html">Studio Policy</a>
+    <a href="/">Home</a>
+    <a href="/policy.html" class="active">Studio Policy</a>
     <a href="/contact.html">Contact</a>
   </nav>
   <main>
-    <section class="card" id="calendar">
-      <h2>Schedule</h2>
-      <iframe src="https://www.google.com/calendar/embed?src=bm26phmm4ta0c1t91t9ei9q1ks%40group.calendar.google.com&ctz=America/Denver" height="600" frameborder="0" scrolling="no"></iframe>
-    </section>
-    <section class="card" id="announcements">
-      <h2>Announcements</h2>
-      <div class="content" id="announcements-content"><p>Loading...</p></div>
+    <section class="card">
+      <h2>Studio Policy</h2>
+      <div class="content" id="policy-content"><p>Loading...</p></div>
     </section>
   </main>
   <footer>&copy; Martha Taylor Violin</footer>
   <script>
-    fetch('/content/announcements.json')
+    fetch('/content/policy.json')
       .then(r => r.json())
-      .then(d => { document.getElementById('announcements-content').innerHTML = marked.parse(d.body); })
-      .catch(() => { document.getElementById('announcements-content').innerHTML = '<p>No announcements at this time.</p>'; });
+      .then(d => { document.getElementById('policy-content').innerHTML = marked.parse(d.body); })
+      .catch(() => { document.getElementById('policy-content').innerHTML = '<p>Content unavailable.</p>'; });
   </script>
 </body>
 </html>
