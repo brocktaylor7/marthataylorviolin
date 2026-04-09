@@ -2,6 +2,8 @@ backend:
   name: github
   repo: brocktaylor7/marthataylorviolin
   branch: main
+  base_url: https://marthataylorviolin.com
+  auth_endpoint: api/oauth/callback
 
 media_folder: images
 public_folder: /images
@@ -17,7 +19,7 @@ collections:
           - label: "Announcements"
             name: "body"
             widget: "markdown"
-            hint: "This is what students and parents see on the Announcements section of the site."
+            hint: "This is what students and parents see on the Announcements section."
       - label: "Studio Policy"
         name: "policy"
         file: "content/policy.json"
