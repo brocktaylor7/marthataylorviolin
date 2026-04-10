@@ -2,8 +2,8 @@ backend:
   name: github
   repo: brocktaylor7/marthataylorviolin
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  auth_type: pkce
+  app_id: Ov23lilKxFCmAHUSd5Tp
 
 media_folder: images
 public_folder: /images
